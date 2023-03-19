@@ -83,6 +83,13 @@ class PartnerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $partner = Partner::findOrFail($id);
+        $partner->delete();
+
+        // $dir = public_path('uploads')."/partners/".$partner->id;
+
+        // if(File::exists($dir))
+        //     File::deleteDirectory($dir);
+        return $this->index();
     }
 }

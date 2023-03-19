@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Faker\Factory as Faker;
 
+
 class OrderSeeder extends Seeder
 {
     /**

@@ -22,13 +22,13 @@
         <th>{{__('product.index.action')}}</th>
             
         </tr>
-        
+
 @foreach($products as $product)
 
 <tr>
 <td>{{$product->id}}</td>
 <td>{{$product->name}}</td>
-<td><div style="height:50px; overflow-y:scroll;">
+<td><div style="height:50px; overflow-y:hidden;">
     <?php
     // use File
     $dir = public_path('uploads')."/products/". $product->id;
@@ -70,14 +70,7 @@
 @endforeach
 
     </table>   
-    {{$products->links()}}            
-
-
-
-
-
-
-
-
+             
+    {{$products->links()}}
 </a>
 @endsection

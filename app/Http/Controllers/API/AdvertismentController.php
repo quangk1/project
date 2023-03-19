@@ -26,7 +26,11 @@ class AdvertismentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $advertisment = new Advertisment();
+
+
+        $advertisment->save();
+        return response()->json($advertisment->id,200);
     }
 
     /**
@@ -37,7 +41,8 @@ class AdvertismentController extends Controller
      */
     public function show($id)
     {
-        //
+        $advertisment = Advertisment::findOrFail($id);
+        return response()->json($id,201);
     }
 
     /**
@@ -49,7 +54,8 @@ class AdvertismentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $advertisment = Advertisment::findOrFail($id);
+        return response()->json($id,200);
     }
 
     /**
@@ -60,6 +66,9 @@ class AdvertismentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $advertisment = Advertisment::findOrFail($id);
+        $advertisment->delete();
+        return response()->json($id,200);
     }
 }
+        

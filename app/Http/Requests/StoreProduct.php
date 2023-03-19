@@ -26,7 +26,8 @@ class StoreProduct extends FormRequest
     public function rules()
     {
         return [
-            //numeric là decimal(10,2)
+            //numeric là decimal(10,2) 
+            //           Giá trị phải là số.
             'name' => 'required|max:100',
             'price' => 'required|numeric',
             'old_price' => 'required|numeric|max:10000000000' // max:100000 là giá trị điền tối đa

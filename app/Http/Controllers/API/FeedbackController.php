@@ -26,7 +26,15 @@ class FeedbackController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $feedback = new Feedback();
+        $feedback->fullname = $request->fullname;
+        $feedback->phone = $request->phone;
+        $feedback->email = $request->email;
+        $feedback->title = $request->title;
+        $feedback->status = $request->status;
+        $feedback->save();
+        
+        return response()->json($feedback->id,200);
     }
 
     /**
@@ -37,7 +45,8 @@ class FeedbackController extends Controller
      */
     public function show($id)
     {
-        //
+        $feedback = Feedback::findOrFail($id);
+        return response()->json($feedback,201);
     }
 
     /**
@@ -49,7 +58,15 @@ class FeedbackController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $feedback = Feedback::findOrFail($id);
+        $feedback->fullname = $request->fullname;
+        $feedback->phone = $request->phone;
+        $feedback->email = $request->email;
+        $feedback->title = $request->title;
+        $feedback->status = $request->status;
+
+        $feedback->save();
+        return response()->json($id,200);
     }
 
     /**

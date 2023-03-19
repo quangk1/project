@@ -35,7 +35,6 @@ Route::resource('order', \App\Http\Controllers\OrderController::class);
 });
 
 
-
 Route::get('/lang/{lang}',function($lang){
     session(['language' =>$lang]);
     return redirect()->route('index');

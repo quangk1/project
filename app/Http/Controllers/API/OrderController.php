@@ -26,7 +26,10 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $order = new Order();
+
+        $order->save();
+        return response()->json($order->id,200);
     }
 
     /**
@@ -37,7 +40,8 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        //
+        $order = Order::findOrFail($id);
+        return response()->json($id,200);
     }
 
     /**
@@ -49,7 +53,14 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $order = Order::findOrFail($id);
+       
+
+
+
+
+        $order->save();
+        return response()->json($id,200);
     }
 
     /**
@@ -60,6 +71,8 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $order = Order::findOrFail($id);
+        $order->delete();
+        return response()->json($id,200);
     }
 }

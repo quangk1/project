@@ -72,7 +72,7 @@ class CustomerController extends Controller
         $customer->description = $request->description;
 
         $customer->save();
-        return response()->json($customer->id,200);
+        return response()->json($id,200);
     }
 
     /**

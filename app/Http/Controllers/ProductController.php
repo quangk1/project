@@ -55,7 +55,9 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreProduct $request) // đổi requrest thành StoreProduct
+    public function store(StoreProduct $request) 
+    // đổi requrest thành StoreProduct
+    // store là xử lý tác vụ : thêm sản phẩm
     {
         $product = new Product();
         
@@ -69,7 +71,7 @@ class ProductController extends Controller
         $product->partner_id = $request->partner_id;
         $product->description = $request->description;
 
-        $product->save();
+        $product->save();//Phải save thì mới tạo được
 
         if($request->hasfile('photos')){
             $dir = public_path('uploads')."/products/". $product->id;

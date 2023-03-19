@@ -61,7 +61,8 @@ class StyleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $style = Style::findOrFail($id);
+        return $this->index();
     }
 
     /**
@@ -73,7 +74,14 @@ class StyleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $style = Style::findOrFail($id);
+        
+
+
+
+
+        return $this->index();
+
     }
 
     /**
@@ -84,6 +92,13 @@ class StyleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $style = Style::findOrFail($id);
+        $style->delete();
+
+        // $dir = public_path("uploads").'/styles/'.$style->id;
+        // if(File::exists($dir))
+        //     File::deleteDirectory($dir);
+
+        return $this->index();
     }
 }

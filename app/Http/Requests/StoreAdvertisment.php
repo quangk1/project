@@ -27,7 +27,7 @@ class StoreAdvertisment extends FormRequest
             'quantity' => 'required|max:100',
             'datesetup'=> 'required|max:100',
             'fullname'=> 'required|max:100',
-            'phone'=> 'required|numeric|max:100',
+            'phone'=> 'required|max:100',
             'address'=> 'required|max:100'
 
         ];

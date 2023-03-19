@@ -110,9 +110,12 @@ class BusinessController extends Controller
     public function destroy($id)
     {
         $business = Business::FindOrFail($id);
-        
         $business->delete();
         
+        // $dir = public_path("uploads").'/businesss/'.$business->id;
+        // if(File::exists($dir))
+        //     File::deleteDirectory($dir);
+
         return $this->index();
     }
 }

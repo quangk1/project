@@ -114,6 +114,11 @@ class CustomerController extends Controller
     {
         $customer = Customer::findOrFail($id);
         $customer->delete();
+
+        // $dir = public_path("uploads").'/customers/'.$customer->id;
+        // if(File::exists($dir))
+        //     File::deleteDirectory($dir);
+
         return $this->index();
     }
 }

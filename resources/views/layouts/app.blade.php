@@ -31,9 +31,9 @@
                     <!-- Left Side Of Navbar -->
 
        <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
+        <!-- <li class="nav-item">
         <a class="nav-link" href="/advertisment">{{__('my_lang.advertisment')}}</a>
-      </li>
+      </li> -->
       <li class="nav-item">
         <a class="nav-link" href="/business">{{__('my_lang.business')}}</a>
       </li>
@@ -65,6 +65,10 @@
       <li class="nav-item">
         <a class="nav-link" href="/lang/en"><img src="/en.png" style="width: 50px; aspect-ratio:5/3;" alt=""></a>
       </li>
+      
+
+      
+      
       
 
     </ul>

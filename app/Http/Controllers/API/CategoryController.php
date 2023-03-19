@@ -26,7 +26,11 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $category = new Category();
+
+
+
+        return response()->json($id,200);
     }
 
     /**
@@ -37,7 +41,8 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        $category = Category::finOrFail();
+        return response()->json($category,201);
     }
 
     /**
@@ -49,7 +54,11 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $category = Category::findOrFail($id);
+
+
+        $category->save();
+        return response()->json($id,200);
     }
 
     /**
@@ -60,6 +69,10 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::findOrFail($id);
+
+        $category->delete();
+
+        return response()->json($id,200);
     }
 }

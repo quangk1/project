@@ -83,6 +83,13 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $order = Order::findOrFail($id);
+        $order->delete();
+
+        //$dir = public_path("uploads").'/orders/'.$order->id;
+        // if(File::exists($dir))
+        //     File::deleteDirectory($dir);
+
+        return $this->index();
     }
 }

@@ -17,7 +17,6 @@
     </div>
 @endif
 
-
 <form action="{{route('product.update',['product'=>$product->id])}}" method = "POST" enctype="multipart/form-data">
     @method('PUT')
     @csrf
@@ -30,7 +29,7 @@
 <div class="form-group">
 <label for="photos">Ảnh sản phẩm</label>
 
-<input name="photos[]" type="file" class="form-control" id="photos" aria-describedby="nameHelp" multiple>
+<input name="photos[]" type="file" style="overflow:hidden" class="form-control" id="photos" aria-describedby="nameHelp" multiple>
 </div>
 
 

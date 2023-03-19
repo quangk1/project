@@ -26,7 +26,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('category.new');
     }
 
     /**
@@ -37,7 +37,10 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $category = new Category();
+
+
+        return $this->index();
     }
 
     /**
@@ -60,7 +63,12 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::findOrFail($id);
+
+        return view('category.edit',['$category' => $category]);
+        return $this->index();
+
+
     }
 
     /**
@@ -72,7 +80,13 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $category = Category::findOrFail($id);
+        
+
+        // $category->name = $request->name;
+        // $category->age = $request->age;
+
+        return $this->index();
     }
 
     /**
@@ -83,6 +97,13 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::findOrFail($id);
+        $category->delete();
+
+        // $dir = public_path("uploads").'/categories/'.$category->id;
+        // if(File::exists($dir))
+        //     File::deleteDirectory($dir);
+
+        return $this->index();
     }
 }

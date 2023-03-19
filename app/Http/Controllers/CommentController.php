@@ -83,6 +83,14 @@ class CommentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $comment = Comment::findOrFail($id);
+        $comment->delete();
+
+
+        // $dir = public_path("uploads").'/comments/'.$comment->id;
+        // if(File::exists($dir))
+        //     File::deleteDirectory($dir);
+
+        return $this->index();
     }
 }

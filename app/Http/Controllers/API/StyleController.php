@@ -26,7 +26,16 @@ class StyleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $style = new Style();
+
+
+
+
+
+
+        $style->save();
+        return resposne()->json($style->id,200);
+
     }
 
     /**
@@ -37,7 +46,8 @@ class StyleController extends Controller
      */
     public function show($id)
     {
-        //
+        $style = Style::findOrFail($id);
+        return response()->json($id,201);
     }
 
     /**
@@ -49,7 +59,15 @@ class StyleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $style = Style::findOrFail($id);
+
+
+
+
+        $style->save();
+        return response()->json($id,200);
+
+
     }
 
     /**
@@ -60,6 +78,9 @@ class StyleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $style = Style::findOrFail($id);
+        $style->delete();
+
+        return response()->json($id,200);
     }
 }

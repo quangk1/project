@@ -26,7 +26,13 @@ class PartnerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $partner = new Partner();
+
+
+
+
+        $partner->save();
+        return reponse()->json($partner->id,200);
     }
 
     /**
@@ -37,7 +43,8 @@ class PartnerController extends Controller
      */
     public function show($id)
     {
-        //
+        $partner = Partner::findOrFail($id);
+        return response()->json($id,201);
     }
 
     /**
@@ -49,7 +56,11 @@ class PartnerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $partner = Partner::findOrFail($id);
+
+
+        $partner->save();
+        return response()->json($id,200);
     }
 
     /**
@@ -60,6 +71,8 @@ class PartnerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $partner = Partner::findOrFail($id);
+        $partner->delete();
+        return response()->json($id,200);
     }
 }

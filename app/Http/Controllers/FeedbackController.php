@@ -112,6 +112,11 @@ class FeedbackController extends Controller
     {
         $feedback = Feedback::findOrFail($id);
         $feedback->delete();
+
+        // $dir = public_path("uploads").'/feedbacks/'.$feedback->id;
+        // if(File::exists($dir))
+        //     File::deleteDirectory($dir);
+
         return $this->index();
     }
 }
